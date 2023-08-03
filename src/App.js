@@ -34,14 +34,14 @@ function App() {
 
     const winner = checkWinner(updatedBoard);
     if (winner) {
-      if (winner === "0") {
+      if (winner === "O") {
         let { oScore } = scores;
-        oScore += 1;
-        setScores({ ...scores, oScore });
+        oScore += 1
+        setScores({ ...scores, oScore })
       } else {
         let { xScore } = scores;
-        xScore += 1;
-        setScores({ ...scores, xScore });
+        xScore += 1
+        setScores({ ...scores, xScore })
       }
     }
 
@@ -64,14 +64,14 @@ function App() {
     }
   }
 
-  const resetBoard= () => {
+  const resetBoard = () => {
     setGameOver(false);
     setBoard(Array(9).fill(null))
   }
 
   return (
     <div className="App">
-      <ScoreBoard scores = {scores}/>
+      <ScoreBoard scores = {scores} xPlaying={xPlaying}/>
       <Board board={board} onClick={gameOver ? resetBoard : handleBoxClick} />
       <ResetButton resetBoard={resetBoard}/>
     </div>
